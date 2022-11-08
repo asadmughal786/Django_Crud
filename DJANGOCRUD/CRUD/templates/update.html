@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="row">
+
+    <div class="col-sm-8 offset-2">
+        <h4 class="alert alert-info text-center">Update Form</h4>
+        <form action="" method="POST">
+            <strong>
+                {% for message in messages %}
+                <div class="container-fluid p-0">
+                  <div class="alert {{ message.tags }}" role="alert" >
+                    {{ message }}
+                  </div>
+                </div>
+                {% endfor %}
+            </strong>
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" class="btn btn-success" value="update">
+            <a href="{% url 'add_user'%}" class="btn btn-info">Back to Home</a>
+        </form>
+    </div>
+</div>    
+
+{% endblock content %}
+    
